@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+<div id="quiz"></div>
+    <script>
+    fetch('https://andrapoz1.github.io/quiz/quiz.json').then(function (response) {
+           return response.json();
+            }).then(function (quiz) {
+                let posSplit = quiz;
+                const container = document.getElementById("quiz");
+                console.log(posSplit);
+                Object.entries(posSplit.quiz).forEach((element, i) => {
+                    console.log(element[1]);
+                    const question = element[1];
+                    let d = document.createElement("div");
+                    d.classList.add("heading");
+                    let h = document.createElement("h2");
+                    h.classList.add("head") 
+                    
+                    
+
+         console.log(h);
+                    
+                    d.innerHTML ="Question "+(i + 1)+": " + question.question;
+
+                    let form = document.createElement("form");
+                    form.classList.add("form");
+                    question.options.forEach(o => {
+                        let input = document.createElement("input");
+                        input.setAttribute("type", "radio");
+                        input.setAttribute("name", question.question);
+                        let label = document.createElement("label");
+                        label.innerHTML = o;
+                        form.appendChild(input);
+                        form.appendChild(label);
+                    });
+                    d.appendChild(h);
+
+                    d.appendChild(form);
+                    container.appendChild(d);
+                });
+            });
+        
+  
+
+        
+
+    
+
+    </script>
+</body>
+</html>

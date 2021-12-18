@@ -1,0 +1,19 @@
+
+
+.form{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.form label{
+    width: 122px;
+    margin-left: 35px;
+}
+.form input{
+    position: relative;
+    top: 16px;
+}
+.head{
+    font-weight: bold;
+}
